@@ -1,0 +1,42 @@
+<html ng-app>
+    <head>
+
+        <title>AngularJS Basics</title>
+
+        <script src="js/angular.js"></script>
+
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+
+    </head>
+
+    <body style="padding: 50px;" ng-init="birds = [
+        {id: 0, type: 'Eagle', inStock: 24, sold: 3},
+        {id: 1, type: 'Duck', inStock: 15, sold: 12},
+        {id: 2, type: 'Crow', inStock: 3, sold: 36},
+        {id: 3, type: 'Chicken', inStock: 40, sold: 16}
+         ]" >
+
+        <div class="panel  panel-info">
+            <div class="panel-heading">
+                <h1>Birds</h1>
+                <div>
+                    Search for: <input ng-model="searchFor">
+                </div>
+            </div>
+            <table class="table">
+                <tr>
+                    <th>ID</th>
+                    <th>TYPE</th>
+                    <th>IN STOCK</th>
+                    <th>SOLD</th>
+                </tr>
+                <tr ng-repeat="bird in filtered = ( birds | filter:searchFor )">
+                    <td>{{bird.id}}</td>
+                    <td>{{bird.type}}</td>
+                    <td>{{bird.inStock}}</td>
+                    <td>{{bird.sold}}</td>
+                </tr>
+            </table>
+        </div>
+    </body>
+</html>
