@@ -1,0 +1,30 @@
+<html ng-app="prod">
+    <head>
+        <title>Prod Angular JS</title>
+    </head>
+
+    <body>
+
+        <div ng-controller="GreetingCtrl">
+            <h1>Available smiles</h1>
+            <ul ng-repeat="smile in getSmiles()" >{{smile}}</ul>
+            <br><br>
+
+            Your name: <input ng-model="name"> {{name}}
+            <br><br>
+            <button ng-click="update()">update</button>
+            <p>{{greeting}}</p>
+        </div>
+
+
+        <!------- script area here!!! ---------->
+
+        <script src="../01_angularjs_basics/js/angular.js"></script>
+
+        <script src="app.js"></script>
+        <script src="greeting-service.js"></script>
+        <script src="greeting-ctrl.js"></script>
+
+        <!-------------------------------------->
+    </body>
+</html>
