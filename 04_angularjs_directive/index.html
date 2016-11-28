@@ -1,0 +1,46 @@
+<html ng-app="custom-directive"  style="width: 250px;">
+    <head>
+        <title>Angular JS, Custom Directive</title>
+    </head>
+
+    <style type="text/css">
+
+        .ng-scope {
+            border-color: red;
+            border-style: solid;
+            border-width: 2px;
+        }
+
+        .ng-scope div {
+            border-color: blue;
+        }
+
+        .ng-scope ul {
+            border-color: green;
+        }
+    </style>
+
+    <body style="padding-top: 100px;">
+
+        <div ng-controller="GreetingCtrl">
+            Your name: <input ng-model="name">&nbsp;&nbsp;&nbsp;{{name}}
+
+            <!--<div bg-color="ff0000">-->
+            <div>
+                <replace>This text will be replaced with $scope.name</replace>
+            </div>
+        </div>
+
+        <!--<inner-content></inner-content>-->
+
+        <!------- script area here!!! ---------->
+
+        <script src="../01_angularjs_basics/js/angular.js"></script>
+
+        <script src="app.js"></script>
+
+        <script src="greeting-ctrl.js"></script>
+
+        <!-------------------------------------->
+    </body>
+</html>
