@@ -69,7 +69,7 @@ var cat1 = new Animal(13, "Cat");
 var cat2 = new Animal(14, "Cat");
 
 console.log("if #toString() defined on obj.prototype you will have only one copy");
-console.log("result of eagle1.toString == eagle2.toString: " + (cat1.toString == cat2.toString));
+console.log("result of cat1.toString == cat2.toString: " + (cat1.toString == cat2.toString));
 
 prepareNewSection("4. extends");
 
