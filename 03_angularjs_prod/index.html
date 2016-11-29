@@ -3,22 +3,22 @@
         <title>Prod Angular JS</title>
     </head>
 
-    <!--<style type="text/css">-->
+    <style type="text/css">
 
-        <!--.ng-scope {-->
-            <!--border-color: red;-->
-            <!--border-style: solid;-->
-            <!--border-width: 2px;-->
-        <!--}-->
+        .ng-scope {
+            border-color: red;
+            border-style: solid;
+            border-width: 2px;
+        }
 
-        <!--.ng-scope div {-->
-            <!--border-color: blue;-->
-        <!--}-->
+        .ng-scope div {
+            border-color: blue;
+        }
 
-        <!--.ng-scope ul {-->
-            <!--border-color: green;-->
-        <!--}-->
-    <!--</style>-->
+        .ng-scope ul {
+            border-color: green;
+        }
+    </style>
 
     <body>
 
@@ -27,6 +27,7 @@
             <ul ng-repeat="smile in getSmiles()" >{{smile}}</ul>
             <br><br>
 
+            <p>{{::name}}</p>
             Your name: <input ng-model="name"> {{name}}
             <br><br>
             <button ng-click="update()">update</button>

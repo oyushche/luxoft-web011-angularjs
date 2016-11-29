@@ -209,7 +209,7 @@ function SecretKeeper()
         console.log("Yes!!! You are lucky today: secret");
     };
 
-    this.tryYourLuck = function()
+    this.tryYourLuck = function(a)
     {
         return function (number)
         {
@@ -252,7 +252,23 @@ keeper.tryYourLuck(14);
 keeper.tryYourLuck(3);
 
 
+prepareNewSection("10. Callback function");
 
+var fnA = function (callback)
+{
+    var result = "some test data";
+
+    console.log("fnA has done it's job");
+
+    callback(result);
+};
+
+var callbackForFnA = function (input)
+{
+    console.log("callbackForFnA called [data: " + input + "]");
+};
+
+fnA(callbackForFnA);
 
 function prepareNewSection(data)
 {
