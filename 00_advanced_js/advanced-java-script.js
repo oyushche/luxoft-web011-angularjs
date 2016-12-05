@@ -8,7 +8,7 @@ var person = { id: 0, name: "Oleg" };
 
 var activePerson =
 {
-    id: 34,
+    id: 25,
     name: "Oleg",
 
     getName: function ()
@@ -146,37 +146,23 @@ function printArray(arr, printFn)
 
 printArray([1, 2, 3], println);
 
+prepareNewSection("7. Callback function");
 
-prepareNewSection("7. call(), apply()");
-
-var numbers = [1, 2, 3];
-
-var fn = function (prefix, number)
+var fnA = function (callback)
 {
-    console.log(prefix + ": " + number);
+    var result = "some test data";
+
+    console.log("fnA has done it's job");
+
+    callback(result);
 };
 
-function Worker(id)
+var callbackForFnA = function (input)
 {
-    this.id = id;
+    console.log("callbackForFnA called [data: " + input + "]");
+};
 
-    this.doTheJob = function(data, job)
-    {
-        for (var i = 0; i < data.length; i++)
-        {
-            // job.call(this, "worker_" + this.id, data[i]); // params comma separated
-            job.apply(this, ["worker_" + this.id, data[i]]); // params as array
-        }
-    };
-}
-
-var w1 = new Worker(1);
-var w2 = new Worker(2);
-
-w1.doTheJob(numbers, fn);
-console.log(" ");
-w2.doTheJob(numbers, fn);
-
+fnA(callbackForFnA);
 
 prepareNewSection("8. Closure (access closed part of the object) ");
 
@@ -209,7 +195,7 @@ function SecretKeeper()
         console.log("Yes!!! You are lucky today: secret");
     };
 
-    this.tryYourLuck = function(a)
+    this.tryYourLuck = function()
     {
         return function (number)
         {
@@ -251,24 +237,37 @@ var keeper = new SecretKeeper();
 keeper.tryYourLuck(14);
 keeper.tryYourLuck(3);
 
+prepareNewSection("10. call(), apply()");
 
-prepareNewSection("10. Callback function");
+var numbers = [1, 2, 3];
 
-var fnA = function (callback)
+var fn = function (prefix, number)
 {
-    var result = "some test data";
-
-    console.log("fnA has done it's job");
-
-    callback(result);
+    console.log(prefix + ": " + number);
 };
 
-var callbackForFnA = function (input)
+function Worker(id)
 {
-    console.log("callbackForFnA called [data: " + input + "]");
-};
+    this.id = id;
 
-fnA(callbackForFnA);
+    this.doTheJob = function(data, job)
+    {
+        for (var i = 0; i < data.length; i++)
+        {
+            // job.call(this, "worker_" + this.id, data[i]); // params comma separated
+            job.apply(this, ["worker_" + this.id, data[i]]); // params as array
+        }
+    };
+}
+
+var w1 = new Worker(1);
+var w2 = new Worker(2);
+
+w1.doTheJob(numbers, fn);
+console.log(" ");
+w2.doTheJob(numbers, fn);
+
+
 
 function prepareNewSection(data)
 {
