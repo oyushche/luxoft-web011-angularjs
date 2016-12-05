@@ -6,15 +6,16 @@
 
     angular.module("custom-directive", []);
 
-    angular.module("custom-directive").directive('replace', function ()
+    angular.module("custom-directive").directive('oyuReplace', function ()
     {
-        var replace = {};
+        return {
 
-        replace.restrict = 'EACM';
+            scope: true,
 
-        replace.template = "This data coming from my custom directive: {{ name }}";
+            restrict: 'EACM',
 
-        return replace;
+            template: "This data coming from my custom directive: {{ name }}"
+        };
     });
 
     angular.module("custom-directive").directive('innerContent', function ()
@@ -43,6 +44,26 @@
                 color = 'ffff00';
             }
             el.css("background-color", color);
+        };
+
+        return config;
+    });
+
+
+    angular.module("custom-directive").directive('tCompile', function ()
+    {
+        var config = {};
+
+        config.restrict = 'E';
+
+        config.compile = function (el, attrs)
+        {
+            el.css("background-color", "red");
+
+            return function ($scope, el)
+            {
+                el.html("Method call number: " + $scope.counter++);
+            };
         };
 
         return config;

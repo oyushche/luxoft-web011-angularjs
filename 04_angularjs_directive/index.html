@@ -18,6 +18,11 @@
         .ng-scope ul {
             border-color: green;
         }
+
+        .ng-scope oyu-replace {
+            border-color: cyan;
+        }
+
     </style>
 
     <body style="padding-top: 100px;">
@@ -25,13 +30,17 @@
         <div ng-controller="GreetingCtrl">
             Your name: <input ng-model="name">&nbsp;&nbsp;&nbsp;{{name}}
 
-            <!--<div bg-color="ff0000">-->
-            <div>
-                <replace>This text will be replaced with $scope.name</replace>
-            </div>
+            <!--<div bg-color="fff000">-->
+            <!--&lt;!&ndash;<div>&ndash;&gt;-->
+                <!--<oyu-replace>This text will be replaced with $scope.name</oyu-replace>-->
+            <!--</div>-->
+
+            <br><br>
+            <t-compile>AAAAA</t-compile>
         </div>
 
         <!--<inner-content></inner-content>-->
+
 
         <!------- script area here!!! ---------->
 
