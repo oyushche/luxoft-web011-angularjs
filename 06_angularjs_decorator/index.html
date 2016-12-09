@@ -1,0 +1,32 @@
+<html ng-app="prod"  style="width: 250px;">
+    <head>
+        <title>Decorators Angular JS</title>
+    </head>
+
+    <body>
+
+        <div ng-controller="GreetingController as ctrl">
+
+            <h1>Available smiles</h1>
+            <ul ng-repeat="smile in ctrl.getSmiles()" >{{smile}}</ul>
+            <br><br>
+
+            Your name: <input ng-model="ctrl.name"> {{ctrl.name}}
+            <br><br>
+            <button ng-click="ctrl.update()">update</button>
+            <p>{{ctrl.greeting}}</p>
+        </div>
+
+
+        <!------- script area here!!! ---------->
+
+        <script src="../01_angularjs_basics/js/angular.js"></script>
+
+        <script src="app.js"></script>
+
+        <script src="greeting-service.js"></script>
+        <script src="greeting-ctrl.js"></script>
+
+        <!-------------------------------------->
+    </body>
+</html>
