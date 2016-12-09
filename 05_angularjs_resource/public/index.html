@@ -1,0 +1,41 @@
+<html ng-app="prod"  style="width: 350px;">
+    <head>
+        <title>Angular Resource</title>
+    </head>
+
+    <body>
+
+        <div ng-controller="UserCtrl as ctrl">
+
+            <p>Query Result: {{ctrl.output}}</p>
+            <p>Route Params: {{ctrl.routeParams}}</p>
+
+            <input ng-model="userId" placeholder="Input userId"/>
+
+            <br><br>
+            <button ng-click="ctrl.getUserById()">Get user by id</button>
+
+            <br><br><br><br>
+            <input ng-model="userName" placeholder="Input user name"/>
+            <br><br>
+            <button ng-click="ctrl.addUser()">add user</button>
+            <button ng-click="ctrl.updateUser()">update user</button>
+            <button ng-click="ctrl.removeUser()">remove user</button>
+
+        </div>
+
+
+        <!------- script area here!!! ---------->
+
+        <script src="angular/angular.js"></script>
+        <script src="angular/angular-resource.min.js"></script>
+        <script src="angular/angular-route.min.js"></script>
+
+        <script src="app.js"></script>
+
+        <script src="user-service.js"></script>
+        <script src="user-ctrl.js"></script>
+
+        <!-------------------------------------->
+    </body>
+</html>
