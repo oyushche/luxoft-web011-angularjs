@@ -136,6 +136,11 @@ function println(data)
     console.log(data)
 };
 
+function printlnArrow(data)
+{
+    console.log("--> " + data);
+};
+
 function printArray(arr, printFn)
 {
     for (var i = 0; i < arr.length; i++)
@@ -164,25 +169,42 @@ var callbackForFnA = function (input)
 
 fnA(callbackForFnA);
 
-prepareNewSection("8. Closure (access closed part of the object) ");
+prepareNewSection("8.1 Closure (access closed part of the object) ");
+prepareNewSection("Run this in Chrome");
+
+var adder = function math()
+{
+    var sum = 0;
+
+    return function(number)
+    {
+        sum += number;
+        return sum;
+    }
+}();
+
+adder(2);
+console.dir(adder);
+
+
+prepareNewSection("8.2 Closure (access closed part of the object) ");
 
 (function ()
 {
-    var data = 23;
-
     this.check = function ()
     {
-        return private(data);
+        return private();
     };
 
-    var private = function (data)
+    var private = function ()
     {
-        console.log(data + 50);
+        console.log("private");
     };
 
 })();
 
 check();
+
 
 prepareNewSection("9. Return Closure");
 
@@ -275,3 +297,64 @@ function prepareNewSection(data)
     console.log("================ " + data + " ===============");
     console.log(" ");
 }
+
+// function Person()
+// {
+//     this.getName = function ()
+//     {
+//         return "anonymous";
+//     }
+// }
+//
+// var p1 = new Person();
+// var p2 = new Person();
+//
+// p1.getName = function () { return "Alex"; };
+// Person.getName = function () { return "Oleg"; };
+//
+// console.log("p1: " + p1.getName() + ", p2: " + p2.getName());
+//
+
+// function Father() { this.name = "Alex"; this.age = 40 };
+// function Son() { this.age = 8 };
+//
+// Son.prototype = new Father();
+//
+// var son = new Son();
+//
+//
+// console.log("name: " + son.name + ", age: " + son.age);
+
+
+// function Cache() {}
+// Cache.prototype.data = [];
+// Cache.prototype.push = function (value) { this.data.push(value); };
+//
+// var cOne = new Cache();
+// var cTwo = new Cache();
+//
+// cOne.push(10);
+// cTwo.push(44);
+//
+// console.log(cOne.data.toString());
+
+// function Person(name) {
+//     this.name = name;
+//     this.greet = function () {
+//         console.log("Hi, my name is " + this.name);
+//     }
+// }
+//
+// function Doctor(name) {
+//     Person.call(this, name);
+// }
+//
+// Doctor.prototype = new Person();
+// Doctor.prototype.greet = function () {
+//     console.log("Hi, my name is Dr. " + this.name);
+// };
+//
+// new Person("Oleg").greet();
+// new Doctor("Irina").greet();
+
+
