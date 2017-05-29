@@ -1,5 +1,4 @@
 
-
 prepareNewSection("0. Create an object");
 
 var empty = {};
@@ -172,11 +171,11 @@ fnA(callbackForFnA);
 prepareNewSection("8.1 Closure (access closed part of the object) ");
 prepareNewSection("Run this in Chrome");
 
-var adder = function math()
+var adder = function Math()
 {
     var sum = 0;
 
-    return function(number)
+    this.add = function(number)
     {
         sum += number;
         return sum;
