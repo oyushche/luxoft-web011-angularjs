@@ -7,6 +7,7 @@
     var GreetingController = function ($scope)
     {
         $scope.counter = 0;
+        $scope.compileCounter = 0;
         $scope.greeting = "";
 
         $scope.update = function () {

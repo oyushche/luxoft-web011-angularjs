@@ -58,11 +58,14 @@
 
         config.compile = function (el, attrs)
         {
+            var counter = 0;
             el.css("background-color", "red");
+
+            counter++;
 
             return function ($scope, el)
             {
-                el.html("Method call number: " + $scope.counter++);
+                el.html("CC: " + counter + " Method call number: " + $scope.counter++);
             };
         };
 
