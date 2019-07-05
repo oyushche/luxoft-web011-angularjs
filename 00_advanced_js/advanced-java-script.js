@@ -179,7 +179,9 @@ var adder = function Math()
     {
         sum += number;
         return sum;
-    }
+    };
+    
+    return add;
 }();
 
 adder(2);
@@ -355,5 +357,13 @@ function prepareNewSection(data)
 //
 // new Person("Oleg").greet();
 // new Doctor("Irina").greet();
+
+
+
+
+
+
+
+
 
 
