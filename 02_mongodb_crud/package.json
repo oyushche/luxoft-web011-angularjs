@@ -9,6 +9,6 @@
     "express": "4.x",
     "morgan":"1.x",
     "body-parser": "~1.12.4",
-    "mongodb":"2.x"
+    "mongodb":"3.x"
   }
 }
